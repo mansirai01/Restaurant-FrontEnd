@@ -35,8 +35,9 @@ class CommentForm extends Component{
             <ModalHeader toggle={this.toggle}>Submit Comment</ModalHeader>
             <ModalBody >
             <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-            <div className="form-group">
-                <Label htmlFor="rating" >Rating</Label>
+            <Row className="form-group">
+                <Label htmlFor="rating" md={2}>Rating</Label>
+                <Col md={12}>
                 <Control.select model=".rating" name="rating"
                     className="form-control">
                     <option>1</option>
@@ -45,9 +46,11 @@ class CommentForm extends Component{
                     <option>4</option>
                     <option>5</option>
                 </Control.select>
-            </div>
-            <div className="form-group">
-            <Label htmlFor="author" >Your Name</Label>
+                </Col> 
+            </Row>
+            <Row className="form-group">
+            <Label htmlFor="author" md={4}>Your Name</Label>
+            <Col md={12}>
                 <Control.text model=".author" id="author" name="author"
                     placeholder="Your Name"
                     className="form-control"
@@ -65,16 +68,20 @@ class CommentForm extends Component{
                         maxLength: 'Must be 15 characters or less'
                     }}
                 />
-            </div>
-            <div className="form-group">
-                <Label htmlFor="comment" >Comment</Label>
-                    <Control.textarea model=".comment" id="comment" name="comment"
-                        rows="6"
-                        className="form-control" />
-            </div>
-            <div className="form-group"> 
-                <Button className="ml-0" color="primary" onClick={this.toggle}>Submit</Button> 
-            </div>
+                </Col>
+            </Row>
+            <Row className="form-group">
+                <Label htmlFor="comment" md={2} >Comment</Label>
+                <Col md={12}>
+                <Control.textarea model=".comment" id="comment" name="comment" rows="6"
+                    className="form-control" />
+                </Col>       
+            </Row>
+            <Row className="form-group" > 
+                <Col>
+                <Button className="ml-0" color="primary" onClick={this.toggle}>Submit</Button>
+                </Col> 
+            </Row>
             </LocalForm>
             </ModalBody>
         </Modal>
